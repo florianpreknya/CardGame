@@ -20,6 +20,8 @@ class Game {
         self.players = players
     }
     
+    var verbose: Bool = false
+    
     // game session state
     fileprivate var reverseDirection: Bool = false
     fileprivate var pile: [NumberCard] = []
@@ -33,6 +35,11 @@ class Game {
         // give cards to each player and initialize the pile
         let remainingCards = try giveCardsToPlayers(from: deck)
         try initPile(from: remainingCards)
+        
+        if verbose {
+            print("Pile: \(pile.first!)")
+        }
+
         
         // starts the playing session, each player trying to discard his hand; we'll end the game a player emptied his hand or when there are no more cards to discard (the while condition)
         var currentPlayerIndex = -1
@@ -68,6 +75,10 @@ class Game {
                     }
                 }
                 
+                if verbose {
+                    print("\(currentPlayer.name) plays \(discardedCard)")
+                }
+                
                 // reset the "not discarding" count
                 noDiscardingPlayersCount = 0
                 
@@ -77,6 +88,9 @@ class Game {
                 }
                 
             } else {
+                if verbose {
+                    print("\(currentPlayer.name) stays...")
+                }
                 
                 // player didn't discard anything...
                 noDiscardingPlayersCount += 1
@@ -97,14 +111,17 @@ class Game {
         
         var cards = deck
         for player in players {
-            let hand = cards[0..<3]
-            cards.removeFirst(3)
-            
+            let hand = cards.prefix(3)
             if hand.count < 3 {
                 throw GameError.notEnoughCards
             }
             
+            cards.removeFirst(3)
+            
             player.setHand(Array(hand))
+            if verbose {
+                print(player)
+            }
         }
         
         return cards

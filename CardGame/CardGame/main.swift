@@ -8,5 +8,47 @@
 
 import Foundation
 
-print("Hello, World!")
+func createDeck(withReversibleCards reversibleCardsCount: Int = 8) -> [Card] {
+    
+    var cards: [Card] = []
+    (1...9).forEach { number in
+        let colors: [NumberCard.Color] = [.blue, .green, .red, .yellow]
+        colors.forEach { color in
+            cards.append(NumberCard(number: number, color: color))
+        }
+    }
+    
+    (0..<reversibleCardsCount).forEach { _ in
+        cards.append(ReverseCard())
+    }
+    
+    return cards.shuffled()
+}
 
+
+let players: [Player] = [
+    Player(name: "Bob"),
+    Player(name: "Alice"),
+    Player(name: "Carol")
+]
+
+do {
+    let game = try Game(players: players)
+    game.verbose = true
+    
+    let deck = createDeck()
+    print("Deck: \(deck)\n")
+
+    if let winner = try game.play(with: deck) {
+        print("\(winner.name) wins!")
+    } else {
+        print("No winner")
+    }
+    
+} catch GameError.notEnoughPlayers {
+    print("Not enough players!")
+} catch GameError.notEnoughCards {
+    print("Not enough cards!")
+} catch GameError.unknownCard {
+    print("Unknown card!")
+}
