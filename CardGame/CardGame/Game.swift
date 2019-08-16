@@ -24,7 +24,7 @@ class Game {
     
     // game session state
     fileprivate var reverseDirection: Bool = false
-    fileprivate var pile: [NumberCard] = []
+    fileprivate var pile: [Card] = []
     fileprivate var noDiscardingPlayersCount = 0
     
     /// Giving the shuffled deck cards, starts a playing session, returning the eventual winner.
@@ -60,19 +60,12 @@ class Game {
             
             let currentPlayer = players[currentPlayerIndex]
             if let discardedCard = currentPlayer.discard(on: pile.last!) {
-                if discardedCard.isReverseCard {
-                    
+                switch discardedCard {
+                case .number(_, _):
+                    pile.append(discardedCard)
+                case .reverse:
                     // change game direction
                     reverseDirection = !reverseDirection
-                } else {
-                    
-                    // put the card on pile
-                    if let numberCard = discardedCard as? NumberCard {
-                        pile.append(numberCard)
-                    } else {
-                        // this shouldn' t happen with only these cards two types of cards...
-                        throw GameError.unknownCard
-                    }
                 }
                 
                 if verbose {
@@ -129,10 +122,17 @@ class Game {
     
     fileprivate func initPile(from deck: [Card]) throws {
         
-        if let firstNumberCard = deck.first(where: { $0 is NumberCard }) as? NumberCard {
+        if let firstNumberCard = deck.first(where: { card in
+            switch card {
+            case .reverse:
+                return false
+            case .number(_, _):
+                return true
+            }
+        }) {
             pile = [firstNumberCard]
         } else {
-             throw GameError.notEnoughCards
+            throw GameError.notEnoughCards
         }
     }
 }

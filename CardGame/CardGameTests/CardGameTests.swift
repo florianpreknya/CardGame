@@ -28,16 +28,16 @@ class CardGameTests: XCTestCase {
             let game = try Game(players: players)
             
             let deck: [Card] = [
-                NumberCard(number: 2, color: .red),
-                NumberCard(number: 4, color: .yellow),
-                ReverseCard(),
-                NumberCard(number: 2, color: .green),
-                ReverseCard(),
-                NumberCard(number: 6, color: .red),
-                NumberCard(number: 6, color: .blue),
-                NumberCard(number: 8, color: .blue),
-                NumberCard(number: 8, color: .green),
-                NumberCard(number: 5, color: .red)
+                Card.number(value: 2, color: .red),
+                Card.number(value: 4, color: .yellow),
+                Card.reverse,
+                Card.number(value: 2, color: .green),
+                Card.reverse,
+                Card.number(value: 6, color: .red),
+                Card.number(value: 6, color: .blue),
+                Card.number(value: 8, color: .blue),
+                Card.number(value: 8, color: .green),
+                Card.number(value: 5, color: .red)
             ]
             
             let winner = try game.play(with: deck)
@@ -59,16 +59,16 @@ class CardGameTests: XCTestCase {
             let game = try Game(players: players)
             
             let deck: [Card] = [
-                NumberCard(number: 1, color: .red),
-                NumberCard(number: 2, color: .yellow),
-                NumberCard(number: 3, color: .yellow),
-                NumberCard(number: 4, color: .green),
-                ReverseCard(),
-                NumberCard(number: 5, color: .red),
-                NumberCard(number: 6, color: .blue),
-                NumberCard(number: 7, color: .blue),
-                NumberCard(number: 8, color: .green),
-                NumberCard(number: 9, color: .red)
+                Card.number(value: 1, color: .red),
+                Card.number(value: 2, color: .yellow),
+                Card.number(value: 3, color: .yellow),
+                Card.number(value: 4, color: .green),
+                Card.reverse,
+                Card.number(value: 5, color: .red),
+                Card.number(value: 6, color: .blue),
+                Card.number(value: 7, color: .blue),
+                Card.number(value: 8, color: .green),
+                Card.number(value: 9, color: .red)
             ]
             
             let winner = try game.play(with: deck)
@@ -101,13 +101,13 @@ class CardGameTests: XCTestCase {
             let game = try Game(players: players)
             
             let deck: [Card] = [
-                NumberCard(number: 2, color: .red),
-                NumberCard(number: 4, color: .yellow),
-                ReverseCard(),
-                NumberCard(number: 2, color: .green),
-                ReverseCard(),
-                NumberCard(number: 6, color: .red),
-                NumberCard(number: 6, color: .blue),
+                Card.number(value: 2, color: .red),
+                Card.number(value: 4, color: .yellow),
+                Card.reverse,
+                Card.number(value: 2, color: .green),
+                Card.reverse,
+                Card.number(value: 6, color: .red),
+                Card.number(value: 6, color: .blue),
             ]
             
             XCTAssertThrowsError(try game.play(with: deck)) { error in

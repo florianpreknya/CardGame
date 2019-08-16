@@ -11,15 +11,15 @@ import Foundation
 func createDeck(withReversibleCards reversibleCardsCount: Int = 8) -> [Card] {
     
     var cards: [Card] = []
-    (1...9).forEach { number in
-        let colors: [NumberCard.Color] = [.blue, .green, .red, .yellow]
+    (1...9).forEach { value in
+        let colors: [Card.Color] = [.blue, .green, .red, .yellow]
         colors.forEach { color in
-            cards.append(NumberCard(number: number, color: color))
+            cards.append(Card.number(value: value, color: color))
         }
     }
     
     (0..<reversibleCardsCount).forEach { _ in
-        cards.append(ReverseCard())
+        cards.append(Card.reverse)
     }
     
     return cards.shuffled()

@@ -30,16 +30,16 @@ class Player {
     }
     
     /// Discards one card on top of the pile
-    func discard(on pileCard: NumberCard) -> Card? {
+    func discard(on pileCard: Card) -> Card? {
         
         // matching rules, in order: color, number or reverse card
         guard let matchingCardIndex =
-            cards.firstIndex(where: { card in !card.isReverseCard && card.matches(byColor: pileCard)}) ??
-            cards.firstIndex(where: { card in !card.isReverseCard && card.matches(byNumber: pileCard)}) ??
-            cards.firstIndex(where: { card in card.isReverseCard }) else {
-                
-                // nothing matches
-                return nil
+            cards.firstIndex(where: { card in card.matches(pileCard) == .byColor }) ??
+                cards.firstIndex(where: { card in card.matches(pileCard) == .byNumber}) ??
+                cards.firstIndex(where: { card in card.matches(pileCard) == .other }) else {
+                    
+                    // nothing matches
+                    return nil
         }
 
         return cards.remove(at: matchingCardIndex)

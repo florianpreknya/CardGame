@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		D1007D1E23040F0D00B0B283 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1007D1D23040F0D00B0B283 /* main.swift */; };
 		D1007D2523040F6100B0B283 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1007D2423040F6100B0B283 /* Card.swift */; };
-		D1007D272304101F00B0B283 /* NumberCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1007D262304101F00B0B283 /* NumberCard.swift */; };
-		D1007D29230415F700B0B283 /* ReverseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1007D28230415F700B0B283 /* ReverseCard.swift */; };
 		D1007D2F2304176800B0B283 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1007D2E2304176800B0B283 /* Player.swift */; };
 		D1007D31230417B000B0B283 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1007D30230417B000B0B283 /* Game.swift */; };
 		D1007D332304210800B0B283 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1007D322304210800B0B283 /* Errors.swift */; };
@@ -19,8 +17,6 @@
 		D1007D4123042A7D00B0B283 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1007D30230417B000B0B283 /* Game.swift */; };
 		D1007D4223042A8000B0B283 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1007D322304210800B0B283 /* Errors.swift */; };
 		D1007D4323042A8200B0B283 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1007D2E2304176800B0B283 /* Player.swift */; };
-		D1007D4423042A8400B0B283 /* ReverseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1007D28230415F700B0B283 /* ReverseCard.swift */; };
-		D1007D4523042A8700B0B283 /* NumberCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1007D262304101F00B0B283 /* NumberCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,8 +35,6 @@
 		D1007D1A23040F0D00B0B283 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1007D1D23040F0D00B0B283 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D1007D2423040F6100B0B283 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		D1007D262304101F00B0B283 /* NumberCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCard.swift; sourceTree = "<group>"; };
-		D1007D28230415F700B0B283 /* ReverseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseCard.swift; sourceTree = "<group>"; };
 		D1007D2E2304176800B0B283 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		D1007D30230417B000B0B283 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		D1007D322304210800B0B283 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -90,8 +84,6 @@
 			children = (
 				D1007D1D23040F0D00B0B283 /* main.swift */,
 				D1007D2423040F6100B0B283 /* Card.swift */,
-				D1007D262304101F00B0B283 /* NumberCard.swift */,
-				D1007D28230415F700B0B283 /* ReverseCard.swift */,
 				D1007D2E2304176800B0B283 /* Player.swift */,
 				D1007D30230417B000B0B283 /* Game.swift */,
 				D1007D322304210800B0B283 /* Errors.swift */,
@@ -199,8 +191,6 @@
 				D1007D1E23040F0D00B0B283 /* main.swift in Sources */,
 				D1007D31230417B000B0B283 /* Game.swift in Sources */,
 				D1007D332304210800B0B283 /* Errors.swift in Sources */,
-				D1007D272304101F00B0B283 /* NumberCard.swift in Sources */,
-				D1007D29230415F700B0B283 /* ReverseCard.swift in Sources */,
 				D1007D2F2304176800B0B283 /* Player.swift in Sources */,
 				D1007D2523040F6100B0B283 /* Card.swift in Sources */,
 			);
@@ -212,10 +202,8 @@
 			files = (
 				D1007D4223042A8000B0B283 /* Errors.swift in Sources */,
 				D1007D3B230429CA00B0B283 /* CardGameTests.swift in Sources */,
-				D1007D4523042A8700B0B283 /* NumberCard.swift in Sources */,
 				D1007D4123042A7D00B0B283 /* Game.swift in Sources */,
 				D1007D4323042A8200B0B283 /* Player.swift in Sources */,
-				D1007D4423042A8400B0B283 /* ReverseCard.swift in Sources */,
 				D1007D4023042A7A00B0B283 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
